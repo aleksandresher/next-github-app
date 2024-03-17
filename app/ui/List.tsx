@@ -1,40 +1,46 @@
 "use client";
-import { useEffect, useState } from "react";
 import Card from "./Card";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
+import { AppContext } from "../context/ContextProvider";
 
 export type UsersType = {
-  total_count: string;
-  items: [
-    {
-      id: string;
-      avatar_url: string;
-    }
-  ];
+  id: string;
+  login: string;
+  avatar_url: string;
 };
+
+type UsersResponseType = {
+  total_count: string;
+  items: UsersType[];
+};
+
 export default function List() {
-  const [users, setUsers] = useState<UsersType>({
-    total_count: "",
-    items: [{ id: "", avatar_url: "" }],
-  });
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await fetch("https://api.github.com/search/users?q=a");
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        console.log(error);
-      }
+  const context = useContext(AppContext);
+  const query = context?.search;
+  const perPage = context?.perPage;
+  const fetchUsers = async (): Promise<UsersResponseType> => {
+    const response = await fetch(
+      `https://api.github.com/search/users?q=${query}&per_page=${perPage}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to getch users");
     }
-    fetchUsers();
-  }, []);
+    return response.json();
+  };
+
+  const { data } = useQuery({
+    queryKey: ["users"],
+    queryFn: fetchUsers,
+    enabled: !!query,
+  });
 
   return (
-    <div>
-      {users?.items?.map((item) => {
+    <div className="grid grid-cols-5 gap-5 mt-8 p-7">
+      {data?.items?.map((item) => {
         return (
           <div key={item.id}>
-            <Card id={item.id} avatar={item.avatar_url} />
+            <Card login={item.login} avatar={item.avatar_url} id={item.id} />
           </div>
         );
       })}

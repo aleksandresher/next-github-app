@@ -1,15 +1,26 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   id: string;
   avatar: string;
+  login: string;
 };
 
-const Card: React.FC<Props> = ({ id, avatar }: Props) => {
+const Card: React.FC<Props> = ({ id, avatar, login }: Props) => {
   return (
-    <div>
-      <h1>{id}</h1>
-      <Image src={avatar} alt={avatar} width={200} height={200} />
+    <div className="flex flex-col  items-center gap-2 bg-[#252323] p-3 rounded-sm">
+      <Image
+        src={avatar}
+        alt={avatar}
+        width={200}
+        height={200}
+        className="rounded-md"
+      />
+      <Link href={`/user/${login}`}>
+        <h1 className="text-white">ID: {id}</h1>
+      </Link>
     </div>
   );
 };
