@@ -30,7 +30,7 @@ export default function List() {
   };
 
   const { data } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", query],
     queryFn: fetchUsers,
     enabled: !!query,
   });
