@@ -1,6 +1,10 @@
 "use client";
-import Search from "@/app/ui/Search";
+import FullCard from "@/app/ui/FullCard";
 
 export default function Page() {
-  return <></>;
+  return (
+    <>
+      <FullCard />
+    </>
+  );
 }

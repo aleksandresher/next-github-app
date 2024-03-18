@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,7 +19,7 @@ const Card: React.FC<Props> = ({ id, avatar, login }: Props) => {
         height={200}
         className="rounded-md"
       />
-      <Link href={`/user/${login}`}>
+      <Link href={{ pathname: `/user/${login}`, query: { username: login } }}>
         <h1 className="text-white">ID: {id}</h1>
       </Link>
     </div>
