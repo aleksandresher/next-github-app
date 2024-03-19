@@ -1,17 +1,23 @@
 "use client";
 import PerPageSelect from "./PerPageSelect";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../context/ContextProvider";
 import { useQueryClient } from "@tanstack/react-query";
+import useDebounce from "@/utils/useDebounce";
 
 export default function Search() {
-  const quetyClient = useQueryClient();
+  const queryClient = useQueryClient();
   const search = useContext(AppContext);
+
+  const debouncedSearch = useDebounce(search?.search, 300);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     search?.updateSearch(e.target.value);
-    quetyClient.invalidateQueries({ queryKey: ["users"] });
   };
+
+  useEffect(() => {
+    queryClient.invalidateQueries({ queryKey: ["users"] });
+  }, [debouncedSearch]);
 
   return (
     <form className="flex w-full justify-center items-center gap-5 mt-4 p-4 h-[60px]">

@@ -24,6 +24,7 @@ export default function ContextProvider({ children }: ContextProviderProps) {
     updateSearch: (search: string) =>
       setContext((prev: AppContextType) => ({ ...prev, search })),
   });
+  console.log(context);
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
 }

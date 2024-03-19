@@ -1,8 +1,9 @@
 "use client";
 import Card from "./Card";
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import { AppContext } from "../context/ContextProvider";
+import ListSkeleton from "./Skeletons/ListSkeleton";
 
 export type UsersType = {
   id: string;
@@ -29,11 +30,14 @@ export default function List() {
     return response.json();
   };
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["users", query],
     queryFn: fetchUsers,
     enabled: !!query,
   });
+  if (isLoading) {
+    return <ListSkeleton gridNum={perPage} />;
+  }
 
   return (
     <div className="grid grid-cols-5 gap-5 mt-8 p-7">
