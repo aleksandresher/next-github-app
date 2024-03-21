@@ -1,4 +1,4 @@
-import FullCard from "@/app/ui/FullCard";
+import FullCard from "@/app/ui/SingleUser/FullCard";
 
 export default function Page() {
   return (

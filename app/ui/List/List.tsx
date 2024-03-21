@@ -1,38 +1,19 @@
 "use client";
-import Card from "./Card";
+import Card from "../Card/Card";
 import { useQuery } from "@tanstack/react-query";
-import { Suspense, useContext } from "react";
-import { AppContext } from "../context/ContextProvider";
-import ListSkeleton from "./Skeletons/ListSkeleton";
-
-export type UsersType = {
-  id: string;
-  login: string;
-  avatar_url: string;
-};
-
-type UsersResponseType = {
-  total_count: string;
-  items: UsersType[];
-};
+import { useContext } from "react";
+import { AppContext } from "../../context/ContextProvider";
+import ListSkeleton from "../Skeletons/ListSkeleton";
+import { fetchUsersList } from "../../api/actions";
 
 export default function List() {
   const context = useContext(AppContext);
   const query = context?.search;
   const perPage = context?.perPage;
-  const fetchUsers = async (): Promise<UsersResponseType> => {
-    const response = await fetch(
-      `https://api.github.com/search/users?q=${query}&per_page=${perPage}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to getch users");
-    }
-    return response.json();
-  };
 
   const { data, isLoading } = useQuery({
     queryKey: ["users", query],
-    queryFn: fetchUsers,
+    queryFn: () => fetchUsersList(query, perPage),
     enabled: !!query,
   });
   if (isLoading) {

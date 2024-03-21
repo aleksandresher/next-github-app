@@ -1,8 +1,5 @@
-import Search from "./ui/Search";
-import List from "./ui/List";
-import { Suspense } from "react";
-import ListSkeleton from "./ui/Skeletons/ListSkeleton";
-import Loading from "./loading";
+import Search from "./ui/Search/Search";
+import List from "./ui/List/List";
 
 export default async function Home() {
   return (
@@ -10,9 +7,7 @@ export default async function Home() {
       <div className="flex w-full items-center">
         <Search />
       </div>
-      <Suspense fallback={<Loading />}>
-        <List />
-      </Suspense>
+      <List />
     </>
   );
 }

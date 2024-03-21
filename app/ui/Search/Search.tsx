@@ -1,7 +1,7 @@
 "use client";
-import PerPageSelect from "./PerPageSelect";
+import PerPageSelect from "../Select/PerPageSelect";
 import { useContext, useEffect } from "react";
-import { AppContext } from "../context/ContextProvider";
+import { AppContext } from "../../context/ContextProvider";
 import { useQueryClient } from "@tanstack/react-query";
 import useDebounce from "@/utils/useDebounce";
 

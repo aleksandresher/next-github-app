@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useContext } from "react";
-import { AppContext } from "../context/ContextProvider";
+import { AppContext } from "../../context/ContextProvider";
 
 export default function PerPageSelect() {
   const perPage = useContext(AppContext);

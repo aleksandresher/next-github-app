@@ -1,13 +1,43 @@
-import { Skeleton } from "@/components/ui/skeleton";
-
 export function FullCardSkeleton() {
   return (
-    <div className="flex flex-col space-y-3 bg-white">
-      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-        <p className="z-20 text-white">srsdfsdfsdf</p>
+    <div className="w-[700px] h-[500px] bg-white-400 p-8 shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]  animate-pulse   rounded-[10px] grid grid-cols-2 grid-rows-2 gap-4">
+      <div className="flex items-center self-start animate-pulse w-[200px] h-[200px]  ">
+        <svg
+          className="w-full h-full text-gray-200 dark:text-gray-600 rounded-[30%]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 18"
+        >
+          <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+        </svg>
+      </div>
+      <div className="flex flex-col gap-5 items-center justify-center animate-pulse rounded-sm">
+        <h1 className="text-lg font-bold"></h1>
+        <p className="font-medium"></p>
+      </div>
+      <div className="flex flex-col gap-4  row-span-3 animate-pulse  h-[200px] rounded-sm">
+        <div className="flex items-center gap-3 bg-white animate-pulse"></div>
+        <div className="flex items-center gap-3 bg-gray-200 animate-pulse"></div>
+        <div className="flex items-center gap-3 bg-gray-200 animate-pulse"></div>
+        <div className="flex items-center gap-3 bg-gray-200 animate-pulse"></div>
+      </div>
+
+      <div className="flex   gap-4  row-span-4 items-end pb-6 animate-pulse bg-gray-200 h-[100px] rounded-sm">
+        <div className="flex flex-col items-center bg-white animate-pulse">
+          <p className="font-medium"></p>
+          <p></p>
+        </div>
+
+        <div className="flex flex-col items-center animate-pulse bg-white ">
+          <p className="font-medium"></p>
+          <p></p>
+        </div>
+
+        <div className="flex flex-col items-center animate-pulse bg-white ">
+          <p className="font-medium"></p>
+          <p></p>
+        </div>
       </div>
     </div>
   );
