@@ -16,7 +16,7 @@ type ContextProviderProps = {
 };
 
 export default function ContextProvider({ children }: ContextProviderProps) {
-  const [context, setContext] = useState<AppContextType>({
+  const [context, setContext]: any = useState<AppContextType>({
     perPage: 5,
     search: "",
     updatePerPage: (perPage: number) =>
