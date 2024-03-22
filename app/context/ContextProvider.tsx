@@ -5,8 +5,10 @@ import { createContext, useState, Dispatch, SetStateAction } from "react";
 type AppContextType = {
   perPage: number;
   search: string;
+  theme: string;
   updatePerPage: (perPage: number) => void;
   updateSearch: (search: string) => void;
+  changeTheme: (theme: string) => void;
 };
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -19,6 +21,9 @@ export default function ContextProvider({ children }: ContextProviderProps) {
   const [context, setContext]: any = useState<AppContextType>({
     perPage: 5,
     search: "",
+    theme: "light",
+    changeTheme: (theme: string) =>
+      setContext((prev: AppContextType) => ({ ...prev, theme })),
     updatePerPage: (perPage: number) =>
       setContext((prev: AppContextType) => ({ ...prev, perPage })),
     updateSearch: (search: string) =>

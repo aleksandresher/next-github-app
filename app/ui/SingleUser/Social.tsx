@@ -27,11 +27,11 @@ export default function Social({ data }: SocialProps) {
       </div>
       <div className="flex items-center gap-3">
         <Image src={Location} alt="twitter-logo" width={24} height={24} />
-        {data?.location && <p>Not Available</p>}
+        {data?.location || <p>Not Available</p>}
       </div>
       <div className="flex items-center gap-3">
         <Image src={Company} alt="twitter-logo" width={24} height={24} />
-        {data?.company && <p>Not Available</p>}
+        {data?.company || <p>Not Available</p>}
       </div>
       <div className="flex items-center gap-3">
         <Image src={Blog} alt="twitter-logo" width={24} height={24} />

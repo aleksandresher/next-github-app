@@ -12,18 +12,18 @@ export function FullCardSkeleton() {
           <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
         </svg>
       </div>
-      <div className="flex flex-col gap-5 items-center justify-center animate-pulse rounded-sm">
-        <h1 className="text-lg font-bold"></h1>
-        <p className="font-medium"></p>
+      <div className="flex flex-col gap-2 items-center justify-center animate-pulse rounded-sm">
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
       </div>
-      <div className="flex flex-col gap-4  row-span-3 animate-pulse  h-[200px] rounded-sm">
-        <div className="flex items-center gap-3 bg-white animate-pulse"></div>
-        <div className="flex items-center gap-3 bg-gray-200 animate-pulse"></div>
-        <div className="flex items-center gap-3 bg-gray-200 animate-pulse"></div>
-        <div className="flex items-center gap-3 bg-gray-200 animate-pulse"></div>
+      <div className="w-full pt-8 gap-2 flex flex-col">
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
       </div>
 
-      <div className="flex   gap-4  row-span-4 items-end pb-6 animate-pulse bg-gray-200 h-[100px] rounded-sm">
+      <div className="flex mt-6 gap-4  row-span-4 items-end pb-6 animate-pulse bg-gray-200 h-[100px] rounded-sm">
         <div className="flex flex-col items-center bg-white animate-pulse">
           <p className="font-medium"></p>
           <p></p>

@@ -9,7 +9,7 @@ type Props = {
 
 const Card: React.FC<Props> = ({ id, avatar, login }: Props) => {
   return (
-    <div className="flex flex-col  items-center gap-2 bg-[#252323] p-3 rounded-sm">
+    <div className="flex flex-col  items-center gap-2 bg-[#b5e48c] p-3 rounded-sm border-4 border-[#ffd500]">
       <Image
         src={avatar}
         alt={avatar}
@@ -18,7 +18,7 @@ const Card: React.FC<Props> = ({ id, avatar, login }: Props) => {
         className="rounded-md"
       />
       <Link href={{ pathname: `/user/${login}`, query: { username: login } }}>
-        <h1 className="text-white">ID: {id}</h1>
+        <h1 className="text-[#023047]">ID: {id}</h1>
       </Link>
     </div>
   );

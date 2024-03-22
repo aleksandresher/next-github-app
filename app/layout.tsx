@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./provider";
 import ContextProvider from "./context/ContextProvider";
+// import ThemeToggle from "./ui/ThemeToggle/ThemeToggle";
+import QueryProvider from "./context/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ContextProvider>
-          <Providers>{children}</Providers>
-        </ContextProvider>
+        <QueryProvider>
+          <ContextProvider>
+            <Providers>
+              {/* <ThemeToggle /> */}
+              {children}
+            </Providers>
+          </ContextProvider>
+        </QueryProvider>
       </body>
     </html>
   );

@@ -9,13 +9,14 @@ export type UserType = {
   bio: string;
   public_repos: number;
   twitter_username: string;
-  location: string;
+  location: string | null | undefined;
   created_at: Date;
   repos_url: string;
-  company: string;
+  company: string | null | undefined;
   blog: string;
   id: string;
   login: string;
+  html_url: string;
 };
 
 type UsersResponseType = {
