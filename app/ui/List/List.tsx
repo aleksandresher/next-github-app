@@ -21,7 +21,7 @@ export default function List() {
   }
 
   return (
-    <div className="grid grid-cols-5 gap-5 mt-8 p-7">
+    <div className="grid grid-cols-4 gap-10 mt-8 p-7 pl-12 pr-12 w-full items-center">
       {data?.items?.map((item) => {
         return (
           <div key={item.id}>

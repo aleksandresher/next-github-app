@@ -7,7 +7,9 @@ export default async function Home() {
       <div className="flex w-full items-center">
         <Search />
       </div>
-      <List />
+      <div>
+        <List />
+      </div>
     </>
   );
 }
